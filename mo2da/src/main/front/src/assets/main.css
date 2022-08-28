@@ -1,0 +1,8 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+html{
+  font-family: 'Hanna';
+}
+
+*{
+  box-sizing: border-box;
+}

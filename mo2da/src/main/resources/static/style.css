@@ -1,0 +1,50 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+html{
+  font-family: 'Hanna';
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.header{
+  font-size: 40px;
+
+}
+
+.input-section{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+input, button{
+  height: 40px;
+  border-radius: 8px;
+  /* border: none; */
+  margin-top: 10px;
+}
+
+button{
+  background-color: lightblue;
+}
+
+.root{
+  display: flex;
+}
+
+.left-side, .right-side{
+  width: 25%;
+  height: 100vh;
+  /* background-color: bisque; */
+}
+
+.main{
+  width: 50%;
+  background-color: azure;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
