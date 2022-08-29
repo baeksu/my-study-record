@@ -15,6 +15,7 @@ const join = ()=>{
     username: username.value,
     password: password.value,
     city: city.value,
+    age: age.value
   })
   .then((response)=>{
     console.log(response.data);
