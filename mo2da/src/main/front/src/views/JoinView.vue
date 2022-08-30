@@ -3,13 +3,14 @@ import { ref } from "@vue/reactivity";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
+const router = useRouter();
 const username = ref("");
 const password = ref("");
 const city = ref("");
 const age = ref("");
 
-
 // 요거 중복아이디 같은거 발생했을떄도 처리를 해줘야 하는데 요건 좀 나중에 채워나가자
+// 회원가입 이후 로그인 화면으로 라우팅
 const join = ()=>{
   axios.post("/api/join" , {
     username: username.value,
@@ -18,8 +19,7 @@ const join = ()=>{
     age: age.value
   })
   .then((response)=>{
-    console.log(response.data);
-    
+    router.replace({name : "login"});
   })
   .catch()
 }

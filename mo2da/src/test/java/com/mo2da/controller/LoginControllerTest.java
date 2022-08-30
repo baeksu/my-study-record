@@ -46,10 +46,21 @@ class LoginControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
         Member findMember = memberRepository.findByUsername("baeksu");
-        Assertions.assertEquals(findMember.getCity(),"서울");
+        Assertions.assertEquals(findMember.getCity(), "서울");
     }
 
+    @Test
+    @DisplayName("/login post 성공 테스트")
+    public void test2() throws Exception{
+        //given
+        JoinForm joinForm = new JoinForm("baeksu", "123", "서울", 30);
+        memberService.join(joinForm);
 
-
+        //expected
+        mockMvc.perform(MockMvcRequestBuilders.post("/login")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"username\":\"baeksu\" , \"password\":\"123\"}"))
+                .andDo(MockMvcResultHandlers.print());
+    }
 
 }

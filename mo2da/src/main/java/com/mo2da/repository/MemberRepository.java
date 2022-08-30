@@ -2,6 +2,7 @@ package com.mo2da.repository;
 
 import com.mo2da.entity.Member;
 import com.mo2da.exception.JoinException;
+import com.mo2da.exception.LoginException;
 import com.mo2da.request.JoinForm;
 import org.springframework.stereotype.Repository;
 
@@ -38,5 +39,20 @@ public class MemberRepository {
                 .getResultList();
 
         return members.size() != 0 ? members.get(0) : null;
+    }
+
+
+    public Long findByUsernamePassword(String username, String password) throws LoginException{
+        List<Member> members = em.createQuery("select m from Member m where m.username = :username and m.password = :password", Member.class)
+                .setParameter("username", username)
+                .setParameter("password", password)
+                .getResultList();
+
+        if (members.size() == 0) {
+            throw new LoginException("로그인 정보 불일치");
+        } else {
+            return members.get(0).getId();
+        }
+
     }
 }

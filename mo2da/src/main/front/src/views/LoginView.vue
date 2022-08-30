@@ -1,8 +1,23 @@
 <script setup lang="ts">
+import { ref } from "@vue/reactivity";
+import axios from "axios";
 import {useRouter} from "vue-router";
 
-const router = useRouter();
 
+const router = useRouter();
+const username = ref("");
+const password = ref("");
+
+const login = () =>{
+  axios.post("/api/login",{
+    username : username.value,
+    password : password.value
+  })
+  .then((response)=>{
+    router.replace({name : "posts"})
+  })
+  .catch()
+}
 
 </script>
 
@@ -15,9 +30,9 @@ const router = useRouter();
     </p>
     <section class="input-section">
       <h2>입장하기</h2>
-      <input type="text" placeholder="USERNAME">
-      <input type="password" placeholder="PASSWORD">
-      <button> SIGN IN</button>
+      <input v-model="username" type="text" placeholder="USERNAME">
+      <input v-model="password" type="password" placeholder="PASSWORD">
+      <button @click="login"> SIGN IN</button>
       <router-link to="/join">
         <button> JOIN US</button>
       </router-link>
