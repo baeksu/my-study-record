@@ -13,7 +13,7 @@ java, HTML, CSS, javascript, springboot, jpa, vue3
 - 채팅
 
 
-## 회원가입 구현 
+## 회원가입 & 로그인 기능 구현
 ### 2022.08.29
 - 중복아이디일 경우 JoinException.class 예외 생성해서 throws (추후 @ControllerAdvice 로 예외처리를 따로 해줄 예정)
 - MemberService() 중복아이디 테스트 코드 작성 완료
@@ -22,3 +22,4 @@ java, HTML, CSS, javascript, springboot, jpa, vue3
 ### 2022.08.30
 - vue-front 에서 회원가입폼 post 요청처리 완료. h2 db update 확인
 - post("/login") 요청에 대한 정상 시나리오 테스트 및 back & front 구현 완료 (추후 @ControllerAdvice 로 예외처리 따로 해줄 예정, 우선 성공 후 @id 값 리턴)
+- 로그인 후 세션 생성 로직 추가 필요
