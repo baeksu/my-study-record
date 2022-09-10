@@ -1,3 +1,6 @@
 console.log(score);
 
-var score=10;
+score=10;
+var score;
+
+console.log(score);
