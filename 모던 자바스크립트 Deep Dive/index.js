@@ -1,5 +1,3 @@
-const arr = [1,2,3];
+console.log(score);
 
-arr.forEach((data)=>{
-  console.log(data);
-})
+var score=10;
