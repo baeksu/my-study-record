@@ -4,25 +4,21 @@ import { ref } from "@vue/reactivity";
 import axios from "axios";
 import {useRouter} from "vue-router";
 
-const posts = [];
+const totalPosts = 0;//서버쪽에 몇개의 posts 가 있는지 가져와서 페이지 번호를 몇개까지 만들지
+const posts = [
+  {no : 1, title : "제목1", author:"백수1" , count : 1, date: ""},
+  {no : 2, title : "제목2", author:"백수2" , count : 1, date: ""},
+  {no : 3, title : "제목3", author:"백수3" , count : 1, date: ""},
+];
 
-//PostsView.vue 가 렌더링 될때 서버로 axios 날리는게 되는듯?
-axios.get("/api/posts")
-  .then((response)=>{
-    console.log(response.data);
+// //PostsView.vue 가 렌더링 될때 서버로 axios 날리는게 되는듯?
+// axios.get("/api/posts")
+//   .then((response)=>{
+//     console.log(response.data);
     
-  })
-  .catch()
-
-
-
-
+//   })
+//   .catch()
 </script>
-
-
-
-
-
 <template>
   <div class="root">
     <div class="title">
@@ -35,7 +31,6 @@ axios.get("/api/posts")
         <input type="text" placeholder="검색어를 입력하세요"> 
         <input type="button" value="검색">
       </div>
-      
     </section>
     
     <table>
@@ -46,20 +41,14 @@ axios.get("/api/posts")
         <th>조회수</th>
         <th>날짜</th>
       </tr>
-      <tr>
-        <td>1</td>
-        <td>오늘 점심 뭐먹지</td>
-        <td>baeksu</td>
-        <td>0</td>
-        <td>2020.09.01</td>
+      <tr  v-for="post in posts" :key="post.no">
+        <td>{{post.no}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.author}}</td>
+        <td>{{post.count}}</td>
+        <td>{{post.date}}</td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>내일은 금요일</td>
-        <td>백수</td>
-        <td>2</td>
-        <td>2020.09.01</td>
-      </tr>
+
     </table>
     
     <section class="paging">
@@ -86,9 +75,18 @@ axios.get("/api/posts")
 
 .paging ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style: none;
+  width: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
+
+.paging li{
+  padding: 10px;
+}
+
+
 
 
 
@@ -100,7 +98,7 @@ axios.get("/api/posts")
   display: flex;
   flex-direction: column;
   width: 100%; 
-  margin-bottom: 10px;
+  
 }
 
 .input-section{
