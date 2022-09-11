@@ -1,6 +1,13 @@
-console.log(score);
 
-score=10;
-var score;
+let lastname = 'lee';
+let city = '서울';
 
-console.log(score);
+let info = '안녕하세요, ' + lastname + city;
+console.log(info);
+
+let info2 = `안녕하세요, 
+${lastname} + ${city}`;
+console.log(info2);
+
+
+
