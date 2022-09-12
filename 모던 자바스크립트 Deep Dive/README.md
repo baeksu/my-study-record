@@ -109,7 +109,63 @@ Math.pow(2,2) 를 사용해도 되지만 2**2 요렇게 사용해도 된다.
 
 ---
 ## <span style='background-color:#dcff24'> 8장: 제어문</span>
-### 블록문
+### 타입 변환
+- 명시적 형변환
+아래와 같이 number 타입 x를 string 타입으로 개발자가 의도적으로 변경시키는걸 의미한다.
+```javascript
+const x = 10;
+const str = x.toString();
+
+console.log(typeof str, str);
+console.log(typeof x, x);
+```
+- 암묵적 타입 변환 (타입 강제 변환)
+아래와 같은 상황에서 자바스크립트 엔진에 의해서 암묵적으로 string 타입으로 변경시켜서 문자열을 연결시켜준다.
+```javascript
+const x = 10;
+const str = 'hello'+x;
+console.log(typeof str, str);
+console.log(typeof x,x);
+```
+> 두 경우 모두 원본 x: number 타입이 변경되지는 않는다. 예시코드에는 const로 작성했는데 var로 선언해도 변경되지 않는다.
+
+### 논리 연산자를 사용한 단축 평가
+> 이런건 또 살다살다 처음보네...;; 어떻게 동작하는지는 알겠는데 뭔가 찝찝하네 118p 참고, 나중에 한번 다시 보자.
+
+ && 연산자는 앞,뒤로 모두 true 가 오면 true 를 반환한다. 이때 첫번째 'dog' 의 경우 **Truthy** 값으로 true 로 평가된다. 그럼 여기서 두번째 'cat' 을 보면 된다. 근데 이때 && 연산자는 **논리 연산의 결과를 결정하는 두 번째 피연산자 'cat'** 을 반환한다고 한다.
+
+```javascript
+const flag1 = 'dog' && 'cat';
+console.log(flag1);
+
+const flag2 = true && 'cat';
+console.log(flag2);
+
+const flag3 = 1 && 'cat';
+console.log(flag3);
+```
+
+> 마찬가지로 || 연산자에서는 한쪽만 true 면 true를 반환하니까 반대로 첫번째 인자에서 true 인 값이 오면 해당 피연산자를 반환한다. 
+
+도대체 이런게 언제 쓰이는건지 몰르겠었는데, 책에 있는 예제를 보니까 어떤식으로 활용해야 할지 조금은 알겠다. if문을 주저리주저리 쓰지 않고 간결하게 코드를 작성할 수 있다는 장점이 있는거 같긴한데... **또한 초기화가 되지 않은 변수와 연산을 하려고 할때 유용하게 쓸수도 있을거 같다. (이게 주된 사용 용도 같은데..?)**
+
+```javascript
+var done = true;
+var message = '';
+
+//if(done) message = '완료';
+message = done && '완료';
+console.log(message);
+// 출력: '완료'
+//------------------------------
+var done = false;
+var message = '';
+
+//if(done) message = '완료';
+message = done && '완료';
+console.log(message);
+// 출력: false
+```
 
 
 
