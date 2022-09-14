@@ -195,9 +195,63 @@ str = str ?? 'byebye world';
 console.log(str);//str = null 이면 bye , 그렇지 않으면 hello
 
 ```
+ ---
+## <span style='background-color:#dcff24'> 10장: 객체 리터럴</span>
+
+객체 내에 프로퍼티는 **key:value** 형태로 들어가게 되는데, key값을 '',"" 로 감싸줘도 되고, 그러지 않아도 된다. 다만 -를 통해서 문자를 이어주는 경우에는 꼭 감싸줘야 하고 해당 프로퍼티 값을 참조할 때는 myobj.["new-city"] 와 같이 사용해야 한다.
+
+```javascript
+var myobj = {
+  'name':'백수',
+  'age':30,
+  city: '서울',
+  // new-city:'울산', // -를 연산자로 인식해서 에러
+  'new-city2':'부산' // 요럴때는 '' , "" 로 감싸줘야 한다.
+}
+
+console.log(myobj["new-city2"]);
+console.log(myobj.city);
+console.log(myobj.name);
+```
+
+> 프로퍼티 key 값을 중복으로 사용하면 나중에 선언한 프로퍼티가 기존꺼를 덮어쓴다. 이때 에러가 발생하지 않는걸 주의해야 한다.
+
+### 프로퍼티 추가 및 삭제
+
+```javascript
+var person = {
+  name:'Lee'
+};
+
+person.age = 20; // 그냥 요렇게 하면 프로퍼티가 추가된다.
+delete person.age; // delete를 사용해서 삭제 가능!
+```
+
+### ES6에서 추가된 객체 리터럴의 확장 기능
+
+#### 프로퍼티 축약 표현
+프로퍼티 값으로 변수를 사용하는 경우 프로퍼티 key 값과 변수이름이 동일할 경우 프로퍼티 key 를 생략할 수 있다.
+
+```javascript
+let x=1, y=2;
+const obj = {x,y};
+console.log(obj); // {x:1,y:2}
+```
+
+#### 메서드 축약 표현
+
+```javascript
+const obj = {
+  name:'Lee',
+
+  //function 을 생략하고 () 를 땡겨오면 된다.
+  sayHi(){
+    console.log('Hi world');
+  }
+}
+```
 
 
-## <span style='background-color:#dcff24'> 장: </span>
 ## <span style='background-color:#dcff24'> 장: </span>
 ## <span style='background-color:#dcff24'> 장: </span>
 
