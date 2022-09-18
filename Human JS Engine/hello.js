@@ -9,17 +9,16 @@
  * 화살표 함수는 부모함수의 this를 가져온다. 
  */
 
+const p = new Promise((resolve, reject)=>{
+  setTimeout(()=>{
+    a = 5;
+    console.log(a);
+    resolve(a);
+  },0)
+});
 
-const obj = {
-  name:'baeksu',
-  sayName(){
-    console.log(this.name);
 
-    const foo = ()=>{
-      console.log(this.name);
-    }
-    foo();
-  }
-}
-
-obj.sayName();
+p.then((result)=>{
+  console.log('result',result);
+})
+console.log('딴짓');
