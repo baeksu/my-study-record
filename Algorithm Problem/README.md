@@ -10,7 +10,7 @@
 0 0 0 0 0
 1 0 1 1 1
 0 0 1 1 1
-0 0 1 1 1
+0 0 1 1 1 
 ```
 
 ```python
@@ -18,3 +18,13 @@ N,M = map(int, sys.stdin.readline().split())
 picture_map = [list(map(int,sys.stdin.readline().split())) for row in range(0,N)]
 ```
 
+## 문자열에서 문자 접근
+
+```python
+str = 'abcdef'
+
+for ch in str:
+  print(ch)
+
+
+```
