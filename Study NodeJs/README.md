@@ -28,3 +28,33 @@ EX) 크롬, 디아블로2, ...
 > 노드하면 떠오르는게 **싱글 스레드** 인데 이게 실제로 스레드가 하나가 동작하는게 아니라 **개발자가 접근가능한 스레드** 가 하나라는 의미다. 실제로는 멀티 스레드가 동작하고 있다..!! **노드14 버전부터는 멀티 스레드를 제어할 수 있다고 한다.**
 
 ## 노드 기능
+
+### exports 
+
+함수를 모듈로 분리할때 다음과 같이 사용하자
+
+```javascript
+function doLogin(){}
+function doSave(){}
+
+module.exports = {
+  doLogin,
+  doSave
+}
+```
+
+### this
+브라우저에서 실행할 때와 다른점이, 전역에서 this를 실행할 때다. 전역에서 this를 출력해보면 빈객체 {} 가 나온다. 요거는 module.exprots 와 같은데, exports 할때 객체를 추가해주는게 이런 이유였다.
+
+함수 안에서 실행을 하면 이제 global 이 나온다. 브라우저에서는 windw 였던 녀석이다.
+
+```js
+console.log(this); 
+
+console.log(this === module.exports);
+
+function foo() {
+  console.log(this === global);
+}
+foo()
+```

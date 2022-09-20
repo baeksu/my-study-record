@@ -1,16 +1,11 @@
-var relationship1 = {
-  name: 'zero',
-  friends: ['nero','hero','xero'],
-  logFriends: function(){
-    var that =  this;//relationship1 을 가리키는 this 저장
-    this.friends.forEach(function(friend){
-      console.log(that.name,friend);//이건 'zero'
-      //이건 undefined : 다른 변수에 한번 담아야 하는 꼼수를 써줘야되네.
-      //function() 은 자기만의 this를 가지기 때문에 
-      //화살표 함수는 부모의 this를 가지고 옴
-      console.log(this.name,friend);
-    });
-  },
-};
+console.log(this); // global? -> 이게 웹에서 실행할 때랑 좀 다르네 
+//전역에서 this를 하면 이거는 빈 객체가 리턴됨
 
-relationship1.logFriends();
+//전역에서는 얘임
+//여기다가 exports 하면 함수객체들이 추가되는거임
+console.log(this === module.exports);
+
+function foo() {
+  console.log(this === global);
+}
+foo()

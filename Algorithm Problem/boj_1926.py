@@ -12,8 +12,8 @@ import sys
 from collections import deque
 
 N,M = map(int, sys.stdin.readline().split())
-
 picture_map = [list(map(int,sys.stdin.readline().split())) for row in range(0,N)]
+
 visited = [[0]*M for row in range(0,N)]
 picture_count = 1
 max_area = 0
