@@ -58,3 +58,35 @@ function foo() {
 }
 foo()
 ```
+
+## http 서버
+
+get 요청과 라우터 설정을 다음과 같이 할수 이다. 이때 html 파일 뿐만 아니라 css 파일도 url 로 get 요청을 하는거다. 그래서 내부에 있는 try 에 css 파일은 걸려서 return 을 해준다.
+
+> try 코드가 없으면 css가 안먹히는걸 확인할 수 있다. 그리고 웹 브라우저에서 홈 화면으로 들어가면 나는 클릭을 한번했지만  브라우저는 **/ , /style.css , /favicon.ico** 세번의 req를 날리는걸 확인
+
+```js
+http.createServer(async (req, res) => {
+  try {
+    if (req.method === 'GET') {
+      if (req.url === '/') {
+        const data = await fs.readFile('./restFront.html');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(data);
+      } else if (req.url === '/about') {
+        const data = await fs.readFile('./about.html');
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        return res.end(data);
+      } else if (req.url === '/users') {
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        return res.end(JSON.stringify(users));
+      }
+      // /도 /about도 /users도 아니면
+      try {
+        const data = await fs.readFile(`.${req.url}`);
+        return res.end(data);
+      } catch (err) {
+        // 주소에 해당하는 라우트를 못 찾았다는 404 Not Found error 발생
+      }
+    }
+```
