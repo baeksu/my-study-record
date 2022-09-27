@@ -105,6 +105,25 @@ http.createServer(async (req, res) => {
 > npm i "설치할 패키지"
 npm i -D "설치할 패키지"
 
+> npm i 하고나서 생기는 node_modules 폴더는 git ignore 하고나서 올리고 나중에 배포할때는 다시 내려받은 후에 run 하면 그때 다시 생기도록 하는듯
 
 
+
+## Express 를 이용한 서버
+- nodemon 으로 js 파일을 실행하는게 좀더 활용할 수 있는듯. js 파일에 대한 변경감지를 해서 알아서 재시작을 해주는 기능도 있네
+
+### 미들웨어 활용하기
+모든 api 메서드에서 공통적으로 사용하는 로직이 있다고 할때, use() 메서드를 이용하면 코드를 간결하게 할 수 있다. 세번째 인자의 next() 를 통해서 해당 라우터에 해당하는 api를 호출한다.
+
+```js
+//use에 있는 로직이 먼저 실행되고 그다음에 해당하는 api 메서드 부분으로 넘어간다.
+app.use((req,res,next)=>{
+  console.log('모든 요청마다 실행하고 싶어요!!');
+  next();
+})
+
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'index.html')); 
+})
+```
 
