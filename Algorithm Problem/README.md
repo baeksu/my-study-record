@@ -28,3 +28,20 @@ for ch in str:
 
 
 ```
+
+## 우선순위 큐
+리스트를 heap 형태로 바꿀수 있네
+
+```py
+arr = [9,5,3,7,2]
+heapq.heapify(arr)
+print(arr)
+heapq.heappop(arr)
+print(arr)
+heapq.heappush(arr,1)
+print(arr)
+print(arr[0])
+```
+
+
+
