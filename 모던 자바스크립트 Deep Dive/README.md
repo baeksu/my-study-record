@@ -341,6 +341,8 @@ var add = function(a,b){
 }
 ```
 
+## <span style='background-color:#dcff24'> 13장: 스코프 </span>
+
 
 
 

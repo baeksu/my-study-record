@@ -1,0 +1,36 @@
+<!-- 버튼을 클릭하면 카운터를 증가시켜주는 예제이다
+순수 js 로 구현을 해보면 
+1. DOM button 객체를 가져와서 이벤트리스너를 추가해준다
+2. DOM span 객체를 가져와서 click에 대한 함수에서 화면의 숫자를 갱신해준다
+
+단순한 기능을 구현하는건데도 dom 을 불러오고 이벤트를 추가해준다고
+코드가 복잡해진다. 요런게 수십~수백개가 된다면 상당히 복잡해질것 같다.
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <span>Total clicks: </span>
+  <button id="btn">Click me</button>
+</body>
+<script>
+  let counter = 0;
+  const button = document.getElementById("btn");
+  const span = document.querySelector("span");
+  
+  function handleClick(){
+    counter += 1;
+    span.innerText = `Total clicks: ${counter}`;
+    console.log(counter);
+  }
+  button.addEventListener("click",handleClick);
+</script>
+</html>
