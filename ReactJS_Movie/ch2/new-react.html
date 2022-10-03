@@ -1,0 +1,42 @@
+<!-- 
+JSX 를 통한 Element 생성하기 
+근데 JSX 를 브라우저가 바로 이해할 순 없기 때문에 번역을 해줘야 한다. -> 이걸 babel 이 해준다.
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+    기존의 있던 const 변수에 element 를 담았다면 이제 이걸 함수로 만들워저 삽입하면 된다.
+    container 에 우리가 만든 Element를 추가해줄때 이름은 대문자로 시작해야 한다..!!
+    기존에 있는 Element 는 소문자로 시작하니까 구분을 해주기 위해서 이렇게 하는듯
+-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    
+    const Title = ()=> (
+      <h3 id="title" onMouseEnter={()=>console.log("타이틀위에 마우스가 올라가 있어요")}>
+        Hello I'm a title
+      </h3>
+    );
+    const Btn = ()=> (
+      <button style={{backgroundColor:"tomato"}} onClick={()=>console.log("i'm clicked")}>
+        Click me        
+      </button>
+    )
+    const Container =()=> (
+      <div>
+        <Title />
+        <Btn />
+      </div>
+    )
+    ReactDOM.render(<Container/>,root);
+    
+  </script>
+</html>

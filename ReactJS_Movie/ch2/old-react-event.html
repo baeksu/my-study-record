@@ -1,0 +1,30 @@
+<!-- onClick, onMouseEnter 같은 속성을 통해서 이벤트를 감지할 수 있다.
+addEventListener() 코드를 따로 작성할 필요가 없다. -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script>
+    const root = document.getElementById("root");
+    const span = React.createElement("span",{
+      id:"sexy-span",
+      onMouseEnter: ()=>{ console.log("mouse enter")}  
+    },"Hello, i am a span");
+    const btn = React.createElement("button", {
+      onClick: ()=>{
+        console.log("im clicked")
+      },
+      style: {
+        backgroundColor: "tomato"
+      } 
+    },"Click me");
+    const container = React.createElement("div",null,[span,btn]);
+    ReactDOM.render(container,root);
+    
+  </script>
+</html>

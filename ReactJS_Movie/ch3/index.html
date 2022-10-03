@@ -1,0 +1,45 @@
+<!-- 
+React.useState() 를 통해서 변수같은 상태들을 관리할 수 있다.
+  - 이걸 크롬에서 출력해보면 [0,f] // 첫번째 는 우리가 관리하는 값, 두번째 인자는 그걸 어떻게 바꿀지에 대한 함수 가 온다.
+
+js 문법중에 배열에 접근하는거를 [0], [1] 이렇게 하는방식 말고 다른게 있네.
+어떤게 더 편한지는 모르겠다.
+const data = [1,2,3];
+const [a,b,c] = data
+  -> 이렇게 하면 a=1, b=2, c=3 을 가리킨다. 참조는 아니네 원본 바뀌어도 처음값이 유지
+
+React.useState(); 를 통해서 반환되는 두번쨰 인자는 값을 수정할 수 있는 modifier 함수다.
+얘를 이용해서 값을 수정하고 React 가 자동으로 변경감지를 해서 Rerendering 을 해준다.
+  -> const 로 되어 있는데도 값이 수정이 되네...?
+
+state에 변화가 생기면 App() 이 재렌더링 되면서 화면을 갱신한다...!!!!
+-->
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");    
+    const App =()=> {
+      const [counter, modifier] = React.useState(0);
+      const onClick = ()=>{
+        //modifier(counter + 1);
+        modifier((current)=>current+1)//요렇게 쓰는게 더 안전하다고 하네? 위에방법으로 하면 다른 컴포넌트? 에서 변경이 일어날떄 반영이 안되는건가..?
+      }
+      console.log("App() 전체가 다시 렌더링 되는구나?!");
+      return (
+        <div>
+          <h3>Total click : {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      )
+    }
+    ReactDOM.render(<App/>,root); // 다시 렌더링을 해줘서 값을 갱신해준다.
+    
+  </script>
+</html>
