@@ -1,0 +1,25 @@
+h3{
+  color: red;
+}
+#green{
+  color:green;
+}
+.blue{
+  color:blue;
+}
+
+[href="https://www.google.com"]{
+  background-color: skyblue;
+}
+
+[href="https://www.naver.com"]{
+  background-color: greenyellow;
+}
+
+p:hover{
+  background-color: black;
+}
+
+p{
+  font-size: 30px;
+}

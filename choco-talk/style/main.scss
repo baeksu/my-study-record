@@ -1,0 +1,82 @@
+// // .container{
+// //   background-color: yellow;
+
+// //   h1{
+// //     color: green;
+// //   }
+
+// //   p{
+// //     color: pink;
+
+// //     span{
+// //       color: aqua;
+// //     }
+// //   }
+// // }
+
+// p{
+//   font:{
+//     style:italic;
+//     weight: 900;
+//     size:32px;
+//   } 
+// }
+
+// .first-btn{
+//   &:hover{
+//     background: {
+//       color: red;
+//     };
+//   }
+// }
+
+// .second-btn{
+//   &:hover{
+//     background: {
+//       color: blue;
+//     };
+//   }
+// }
+
+
+// $main-color:green;
+// $font-color:blue;
+// $btn-width: 100px;
+
+// button{
+//   &:nth-child(1){
+//     color: $font-color;
+//     background-color: $main-color;
+//     width: $btn-width;
+//     }
+//   &:nth-child(2){
+//     color: $font-color;
+//     background-color: $main-color;
+//     width:$btn-width;
+
+//   }
+//   &:nth-child(3){
+//     color: $font-color;
+//     background-color: $main-color;
+//     width:$btn-width;
+
+//   }
+// }
+
+@mixin box-style ($bg-color:black, $font-color:black){
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-color;
+  color:$font-color;
+} 
+
+.one{
+  @include box-style();
+}
+
+.two{
+  @include box-style(purple,blue);
+}
