@@ -1,0 +1,84 @@
+* {
+  font-family: "NanumBarunpen";
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  min-width: 300px;
+}
+
+@font-face {
+  font-family: "NanumBarunpen";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumBarunpen.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.login-container {
+  width: 100%;
+  height: 100%;
+  background-color: #ffd15f;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  min-height: 460px;
+  text-align: center;
+}
+.login .login__logo {
+  height: 100px;
+  background-image: url(../img/coconuts.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+.login .login__account {
+  font-size: 0.8em;
+}
+
+.login__form {
+  width: 240px;
+  margin: 0 auto 80px;
+}
+.login__form input {
+  width: 240px;
+  height: 40px;
+  border: 1px solid #bdbdbd;
+  font-size: 0.9em;
+}
+.login__form input:focus {
+  outline: none;
+}
+.login__form input::placeholder {
+  color: #bdbdbd;
+}
+.login__form .login__form__id {
+  padding: 5px 10px;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+}
+.login__form .login__form__pw {
+  padding: 5px 10px;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+}
+.login__form .login__form__bt {
+  margin-top: 6px;
+  border: 1px solid #353535;
+  background: rgba(132, 85, 4, 0.749);
+  color: white;
+  cursor: pointer;
+}
+.login__form .login__form__bt:hover {
+  background: rgb(64, 31, 6);
+}
+
+/*# sourceMappingURL=main.css.map */

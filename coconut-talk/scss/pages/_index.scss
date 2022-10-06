@@ -1,0 +1,83 @@
+//로그인과 관련된 scss
+
+.login-container{
+  width: 100%;
+  height: 100%;
+  background-color: $bg-color;
+}
+
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;// 이걸 100으로 주면 div가 전체 화면을 의미하고  그럼 justify-content : center 를 했을때 높이의 가운데로 오게 된다.
+  min-height: 460px;
+  text-align: center;
+  
+  .login__logo{
+    height: 100px;
+
+    //background 접두어를 묶어두고 설정
+    background: {
+      image: url(../img/coconuts.png);
+      position: center;
+      repeat: no-repeat;
+      size: auto 100%;
+    };
+  }
+
+  .login__account{
+    font-size: 0.8em; // 기본폰트 사이즈 16에 *0.8 을 곱한값이다.
+  }
+}
+
+//login__form 을 login클래스 안에다가 넣어도 되지만
+//중첩이 너무 많이 되면 가독성이 오히려 떨어질 수 있다.
+//이런건 느낌적으로 한번 해보자
+
+.login__form{
+  width: 240px;
+  margin: 0 auto 80px;
+  
+  input{
+    width: 240px;
+    height: 40px;
+    border: 1px solid #bdbdbd;
+    font-size: 0.9em;
+
+    //&: 를 하면 부모 요소인 input을 가리키고 focus 속성을 설정할 수 있음
+    &:focus{
+      outline: none;
+    }
+
+    //placeholder를 접근할때는 ::을 해줘야 하나보네
+    &::placeholder{
+      color: #bdbdbd;
+    }
+  }
+
+  .login__form__id{
+    padding: 5px 10px;
+    border-bottom: none;
+    border-radius: 3px 3px 0 0;
+  }
+  
+  .login__form__pw{
+    padding: 5px 10px;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+  }
+
+  .login__form__bt{
+    margin-top: 6px;
+    border: 1px solid #353535;
+    background: $main-color;
+    color: white;
+    cursor: pointer;// 마우스를 올리면 커서가 손가락 모양으로 바뀌넹
+
+    &:hover{
+      background: $active-color;
+    }
+  }
+
+}

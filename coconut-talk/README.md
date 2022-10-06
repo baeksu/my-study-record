@@ -70,7 +70,7 @@ button:active{
 $main-color: yellow; 요런식으로 변수를 지정할 수 있음
 공통적으로 쓰는 색깔같은걸 설정할때 공통적으로 설정하고 변경에 대응할 수 있다.
 
-```sass
+```css
 $main-color:green;
 $font-color:blue;
 
@@ -97,13 +97,13 @@ button{
     width:$btn-width;    
   }
 }
-
 ```
+
 ## 믹스인
 비슷하거나 동일한 스타일이 반복해서 사용해야하는경우, 믹스인을 사용하면 사이트 전체에서 재사용할 스타일 그룹을 정의할 수 있다.
 이게 약간 함수같이 매개변수를 넘겨서 속성값을 세팅해 줄 수도 있넹. default 값을 통해서 인자를 넘기지않을때도 대응을 할 수 있다.
 
-```sass
+```css
 @mixin box-style ($bg-color:black, $font-color:black){
   width: 100px;
   height: 100px;
@@ -113,7 +113,6 @@ button{
   background-color: $bg-color;
   color:$font-color;
 } 
-
 .one{
   @include box-style();
 }
@@ -127,7 +126,33 @@ button{
   @include box-style($bg-coclor:red);
 }
 ```
+
 ## @content
+콘텐츠 지시자를 이용하면 스타일 블록 전체를 믹스인으로 넘길 수 있다.
 
+```css
+//width, height 는 공통으로 가지고 color & background-color 는 다르게 하고 싶을 때
+@mixin btn-style {
+  @content;
+  width:100px;
+  height:25px;
+}
 
+//이부분이 @content 지시자 있는 부분에 대입된다
+.one{
+  @include btn-style(){
+    color: white;
+    background-color: tomato;
+  }
+}
 
+.two{
+  @include btn-style(){
+    color: red;
+    background-color: teal;
+  }
+}
+
+```
+
+## @import

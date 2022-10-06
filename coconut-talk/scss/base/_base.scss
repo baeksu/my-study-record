@@ -1,0 +1,17 @@
+//공통적으로 적용되는 로직들을 여기다가 적어주자.
+
+*{
+  font-family: "NanumBarunpen";
+  box-sizing: border-box;//패딩이 커져도 요소의 크기가 늘어나지 않는다.
+}
+
+//어떤 페이지를 보든지 간에 꽉 채우고 싶다.
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+  min-width:300px;//우리가 만든 입력폼이 300px 보다 찌그러지지 않도록 body 태그 설정
+}
