@@ -37,11 +37,10 @@
 
 .login__form{
   width: 240px;
-  margin: 0 auto 80px;
+  margin: 0 auto 20px;
   
   input{
-    width: 240px;
-    height: 40px;
+    @include set-box-size(40px,240px);
     border: 1px solid #bdbdbd;
     font-size: 0.9em;
 

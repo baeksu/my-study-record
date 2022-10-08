@@ -1,0 +1,28 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  position: sticky;//스크롤을 내려도 헤더는 고정될 수 있도록
+  top:0;
+  padding: 12px;
+  background-color: #fff;
+  line-height: 36px;
+  z-index:10;
+
+  .header__title{
+    margin:0;
+    font:1em;
+  }
+}
+
+.header__menu{
+  span{
+    @include set-box-size(36px,36px, 18px);
+    display: inline-block;
+    text-align: center;
+    
+    &:hover{
+      background-color: #eaeaea;
+    }
+  }
+}
+

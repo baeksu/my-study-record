@@ -1,14 +1,14 @@
 @import 'abstracts/variables';
-// @import 'abstracts/mixins';
+@import 'abstracts/mixins';
 
 @import 'base/base';
 @import 'base/fonts';
 
-// @import 'layout';
-// @import '';
+@import 'layout/navbar';
+@import 'layout/header';
 
 @import 'pages/index';
-// @import '';
+@import 'pages/chats';
 
 // @import '';
 // @import '';
