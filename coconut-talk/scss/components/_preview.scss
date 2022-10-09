@@ -1,0 +1,38 @@
+.preview{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 16px;
+  background-color: #fff;
+
+  .preview__pic{
+    @include set-box-size(50px,50px,18px);
+    background-color: rgb(64, 31, 6);
+    margin-right: 10px;
+  }
+
+  .preview__nick{
+    margin: 5px;
+    font-size: 0.9em;
+  }
+
+  .preview__message{
+    overflow: hidden; //내용이 너무 많으면 넘치는 부분 감추기
+    width: 50vw;//전체 뷰포트에서 절반
+    margin: 5px;
+    font-size: 0.8em;
+    color: #aeaeae;
+    text-overflow:ellipsis;//텍스트가 오버플로우 되면 ... 으로 표시
+    white-space:nowrap;//공백 여러개가 연달아 있을때 하나로 처리한다.
+  }
+
+  .preview__time{
+    position: absolute;
+    top:10px;
+    right:16px;
+    font-size: 0.8em;
+    color: #aeaeae;
+  }
+  
+}

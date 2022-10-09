@@ -1,4 +1,17 @@
 .chats{
   margin-left: 70px;
+
+  .preview-list{
+    a{
+      text-decoration: none;
+      color: #000;
+    }
+  }
+
+  .preview{
+    &:hover{
+      background-color: #f2f2f2;
+    }
+  }
   
 }

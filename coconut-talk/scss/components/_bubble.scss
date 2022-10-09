@@ -1,0 +1,21 @@
+.bubble{
+  @include set-box-size(50px,280px, 8px);
+  position: relative;//말풍선의 꼬다리 위치를 잡기 위해서
+  left: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: $bg-color;
+  line-height: 30px;
+  cursor: pointer;
+
+  //의사 요소 설정 : 앞에 컨텐츠를 추가할 수 있다. 꼬다리를 추가할거다
+  &::before{
+    @include set-box-size(0,0);//실제 크기는 없더라도 border-xxx 속성으로 처리할 수 있나보네
+    content: "";//아무거도 안쓰면 그냥 삼각형 모양이 나온다.
+    position: absolute;// 이게 부모의 position 설정에 붙어서 되나보다.
+    top: 10px;
+    left: -10px;
+    border-bottom: 16px solid transparent;//bot, right 설정을 통해서 삼각형 모양으로 해줄 수 있나보네
+    border-right: 16px solid $bg-color;
+  }
+}

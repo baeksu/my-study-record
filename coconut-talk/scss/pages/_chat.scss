@@ -1,0 +1,62 @@
+.chat{
+  @include set-box-size(100%,100%);
+  background-color: $main-color;
+
+  .chat-screen{
+    overflow: auto;//넘칠경우 스크롤 효과가생긴다.
+    height: calc(100% - 160px);
+
+    .chat-screen__bar{
+      position: sticky;
+      top: 0;
+      z-index:10;
+    }
+
+    .chat-screen__bubbles{
+      padding: 0;
+      list-style-type:none ;
+    }
+  }
+}
+
+.chat-form{
+  height: 160px;
+  background-color: #ffffff;
+  
+  .chat-form__plugin{
+    height: 40px;
+    background-color: #f2f2f2;
+    
+    .chat-form__icon{
+      line-height: 40px;
+      margin: 0 0 0 15px;
+    }
+  } 
+}
+
+.chat-form__field{
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .chat-form__msg{
+    @include set-box-size(100px,calc(100% - 120px)); //변화하는 창크기에 대응할 수 있다. calc 를 쓰면
+    padding: 10px;
+    border: none;
+    resize: none;
+
+    &:focus{
+      outline: none
+    }
+  }
+
+  .chat-form__bt{
+    @include set-box-size(100px,100px,8px);
+    background-color: $main-color;
+
+    &:active{
+      background-color: $active-color;
+    }
+  }
+}

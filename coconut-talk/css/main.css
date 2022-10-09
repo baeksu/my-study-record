@@ -137,5 +137,132 @@ body {
 .chats {
   margin-left: 70px;
 }
+.chats .preview-list a {
+  text-decoration: none;
+  color: #000;
+}
+.chats .preview:hover {
+  background-color: #f2f2f2;
+}
+
+.chat {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  background-color: rgba(132, 85, 4, 0.749);
+}
+.chat .chat-screen {
+  overflow: auto;
+  height: calc(100% - 160px);
+}
+.chat .chat-screen .chat-screen__bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.chat .chat-screen .chat-screen__bubbles {
+  padding: 0;
+  list-style-type: none;
+}
+
+.chat-form {
+  height: 160px;
+  background-color: #ffffff;
+}
+.chat-form .chat-form__plugin {
+  height: 40px;
+  background-color: #f2f2f2;
+}
+.chat-form .chat-form__plugin .chat-form__icon {
+  line-height: 40px;
+  margin: 0 0 0 15px;
+}
+
+.chat-form__field {
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.chat-form__field .chat-form__msg {
+  height: 100px;
+  width: calc(100% - 120px);
+  border-radius: 0;
+  padding: 10px;
+  border: none;
+  resize: none;
+}
+.chat-form__field .chat-form__msg:focus {
+  outline: none;
+}
+.chat-form__field .chat-form__bt {
+  height: 100px;
+  width: 100px;
+  border-radius: 8px;
+  background-color: rgba(132, 85, 4, 0.749);
+}
+.chat-form__field .chat-form__bt:active {
+  background-color: rgb(64, 31, 6);
+}
+
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  padding: 16px;
+  background-color: #fff;
+}
+.preview .preview__pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 18px;
+  background-color: rgb(64, 31, 6);
+  margin-right: 10px;
+}
+.preview .preview__nick {
+  margin: 5px;
+  font-size: 0.9em;
+}
+.preview .preview__message {
+  overflow: hidden;
+  width: 50vw;
+  margin: 5px;
+  font-size: 0.8em;
+  color: #aeaeae;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.preview .preview__time {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  font-size: 0.8em;
+  color: #aeaeae;
+}
+
+.bubble {
+  height: 50px;
+  width: 280px;
+  border-radius: 8px;
+  position: relative;
+  left: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #ffd15f;
+  line-height: 30px;
+  cursor: pointer;
+}
+.bubble::before {
+  height: 0;
+  width: 0;
+  border-radius: 0;
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -10px;
+  border-bottom: 16px solid transparent;
+  border-right: 16px solid #ffd15f;
+}
 
 /*# sourceMappingURL=main.css.map */
